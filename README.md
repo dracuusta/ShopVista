@@ -12,15 +12,14 @@ Check out the details section down below to use the application. Hope you have a
 <br>
 
 </pre>
-Project Deployed At : https://shopping-arena-app.herokuapp.com/
 
 <h2>Built With: </h2>
 <pre>HTML | CSS | JAVASCRIPT | EMBEDDED JAVASCRIPT | NODEJS | EXPRESS | MONGODB  </pre>
 
 <h2>Details:</h2>
 <pre>
-Developed by: Sanchit Narang <br>
-E-mail : sanchitnarang611@gmail.com <br>
-<a target="_blank" href="https://shopping-arena-app.herokuapp.com/" >Click Here</a> to view the project. <br>
+Developed by: Shashwat Kumar Singh <br>
+E-mail : ssrinet10@gmail.com <br>
+
 </pre>
 
