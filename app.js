@@ -34,6 +34,7 @@ const deleteRoutes = require('./routes/delete');
 const productRoutes = require('./routes/product');
 const authRoutes = require('./routes/auth');
 const cartRoutes = require('./routes/cart');
+const wishlistRoutes= require('./routes/wishlist');
 const reportRoutes = require('./routes/report');
 const successRoutes = require('./routes/success');
 // mongoose.connect('mongodb://localhost:27017/test',
@@ -98,6 +99,7 @@ app.use(productRoutes);
 app.use(authRoutes);
 app.use(cartRoutes);
 app.use(deleteRoutes);
+app.use(wishlistRoutes);
 app.use(reportRoutes);
 app.use(successRoutes);
 app.listen(port, () => {
