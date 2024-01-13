@@ -12,7 +12,7 @@ const User = require('./models/user');
 const port = process.env.PORT || 8000;
 
 
-const DB = 'mongodb+srv://Sanchit:sanchitcode@cluster0.x4rvz.mongodb.net/e-commerce?retryWrites=true&w=majority'
+const DB = 'mongodb+srv://shashwatkumarsinghsrinet10:uQQzUJhu3oFgtYwF@cluster0.b24rrys.mongodb.net/?retryWrites=true&w=majority'
 mongoose.connect(DB,{
         useNewUrlParser: true,
         useUnifiedTopology: true,
