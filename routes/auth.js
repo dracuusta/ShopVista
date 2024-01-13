@@ -52,7 +52,7 @@ router.post('/login',
             failureFlash: true
         }
     ), (req, res) => {
-        if(req.user.username=="shashwat kumar singh")
+        if(req.user.username=="shashhkm")
         req.flash('success', `Welcome Back Admin!!`)
         else
         req.flash('success', `Welcome Back ${req.user.username} !!`)

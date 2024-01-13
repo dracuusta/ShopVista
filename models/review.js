@@ -12,7 +12,7 @@ const reviewSchema = new mongoose.Schema({
     },
     comment: {
         type: String,
-        required: true
+        //required: true making this optional
     }
 })
 

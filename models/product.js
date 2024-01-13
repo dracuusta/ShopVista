@@ -18,7 +18,7 @@ const productSchema = new mongoose.Schema({
     },
     qty:{
         type: Number,
-        default: 0,
+        default: 5,
         min: 0,
     },
     reviews: [

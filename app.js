@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const Product= require('./models/product')
 const mongoose = require('mongoose');
 const path = require('path');
 const seedDB = require('./seed');
@@ -11,16 +12,22 @@ const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 const port = process.env.PORT || 8000;
 
-
 const DB = 'mongodb+srv://shashwatkumarsinghsrinet10:uQQzUJhu3oFgtYwF@cluster0.b24rrys.mongodb.net/?retryWrites=true&w=majority'
 mongoose.connect(DB,{
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useFindAndModify:false,
         useCreateIndex:true
-}).then(()=>{
-    console.log('Database connected');
-}).catch((err)=> console.log('No connection'));
+}).then(() => {
+    console.log('Connected to database');
+    return Product.find(); // Replace with the appropriate model
+  })
+  .then(products => {
+    console.log('Products:', Product);
+  })
+  .catch(err => {
+    console.error('Error:', err);
+  });
 
 // Routes
 const deleteRoutes = require('./routes/delete');
@@ -29,7 +36,7 @@ const authRoutes = require('./routes/auth');
 const cartRoutes = require('./routes/cart');
 const reportRoutes = require('./routes/report');
 const successRoutes = require('./routes/success');
-// mongoose.connect('mongodb://localhost:27017/shopApp',
+// mongoose.connect('mongodb://localhost:27017/test',
 //     {
 //         useNewUrlParser: true,
 //         useUnifiedTopology: true,
@@ -45,7 +52,7 @@ const successRoutes = require('./routes/success');
 //     });
 
 
-// seedDB();
+seedDB();
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
