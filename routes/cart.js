@@ -71,31 +71,4 @@ router.get('/cart/payment', isLoggedIn, (req, res) => {
     res.render('payment/payment')
 })
 
-
-router.post('/user/:userid/wishlist',isLoggedIn,async(req,res)=>{
-    try{
-        const product= await Product.findById(req.params.id);
-        const user=req.user;
-
-        user.wishlist.push(product);
-        await user.save();
-        req.flash('success', 'Added to wishlist successfully');
-        req.redirect(`/user/${req.user._id}/wishlist`);
-    }
-    catch (e) {
-        req.flash('error', 'Unable to add to wishlist at this moment');
-        res.render('error');
-    }
-})
-
-router.get('/user/:userId/wishlist', isLoggedIn, async (req, res) => {
-    try {
-        const user = await User.findById(req.params.userId).populate('wishlist');
-        res.render('wishlist/showWishlist', { userWishlist: user.wishlist });
-    }
-    catch (e) {
-        req.flash('error', 'Unable to view wishlist');
-        res.render('error');
-    }
-});
 module.exports = router;

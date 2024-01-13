@@ -14,30 +14,22 @@ router.get('/user/:userId/wishlist', isLoggedIn, async (req, res) => {
         res.render('error');
     }
 });
-// Add a product to the user's wishlist
-router.post('/user/:userId/wishlist/add/:productId', isLoggedIn, async (req, res) => {
+router.post('/user/:id/wishlist', isLoggedIn, async (req, res) => {
     try {
-        const product = await Product.findById(req.params.productId);
-        const user = await User.findById(req.params.userId);
-
-        if (!product || !user) {
-            req.flash('error', 'Product or user not found');
-            return res.redirect('/error'); // Handle the error accordingly
-        }
-
-        // Check if the product is already in the wishlist
-        if (user.wishlist.includes(product._id)) {
-            req.flash('error', 'Product is already in your wishlist');
-            return res.redirect(`/user/${req.params.userId}/wishlist`);
-        }
+        const product = await Product.findById(req.params.id);
+        const user = req.user;
 
         user.wishlist.push(product);
+
         await user.save();
+        
+
+
         req.flash('success', 'Added to wishlist successfully');
-        res.redirect(`/user/${req.params.userId}/wishlist`);
+        res.redirect(`/user/${req.user._id}/wishlist`);
     } catch (e) {
         req.flash('error', 'Unable to add to wishlist at this moment');
-        res.redirect('/error'); // Handle the error accordingly
+        res.redirect('/error'); 
     }
 });
 
