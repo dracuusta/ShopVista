@@ -1,4 +1,4 @@
-# Shopping-Arena-App
+# ShopVista
 
 <img src="https://user-images.githubusercontent.com/79566726/148944118-42228985-e29d-4c7a-9bdf-4c0581d0ee14.png"></img>
 
